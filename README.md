@@ -1,44 +1,48 @@
-# 🛡️ VibeAudit
+# VibeAudit
 
 > **OWASP Top 10 Security & Web Vibe / UX Quality Auditor**  
 > *Available simultaneously as an interactive CLI (`vibe-audit`) and a Model Context Protocol (MCP) Server for Claude Desktop, Cursor, Antigravity, and AI Agents.*
 
 ---
 
-## ⚡ Highlights
+## Highlights
 
-- **🔒 OWASP Top 10 Live & Codebase Auditing**:
+- **OWASP Top 10 Live & Codebase Auditing**:
   - Live inspection: Strict-Transport-Security (HSTS), Content-Security-Policy (CSP), Clickjacking (X-Frame-Options), MIME Sniffing, Referrer Policy, CORS misconfigurations, Cookie flags (`HttpOnly`, `Secure`, `SameSite`), and server software disclosures.
   - Static AST/regex code scanning: Hardcoded secrets (AWS, GitHub, OpenAI, Google, Slack, Private Keys, DB URIs), dangerous code sinks (`eval()`, `dangerouslySetInnerHTML`), unencrypted HTTP API requests, and unignored `.env` files.
-- **✨ Web Vibe & UX Quality (No More "Web Vibe Lỏ")**:
+- **Web Vibe & UX Quality**:
   - **Chromium Dark Mode `<select>` Contrast Guard**: Enforces explicit styling on dropdown `<option>` elements (`background-color` and `color`) to prevent illegible white-on-white text in Chrome/Edge/Brave.
   - **Mobile Ergonomics**: Responsive `<meta name="viewport">` validation and mobile touch target recommendations.
   - **Zero-Flicker & FOUC Prevention**: Detects client-side theme initialization flicker.
   - **SEO & Social Share Preview**: Checks for `<title>`, meta descriptions, and OpenGraph/Twitter card readiness.
   - **Code Hygiene**: Catches leftover `debugger;` breakpoints, production `console.log` statements, and blocking browser `alert()` modals.
-- **📊 Unified Scoring & Grading Matrix**:
+- **Unified Scoring & Grading Matrix**:
   - Generates numerical scores (0-100) and letter grades (**A+**, **A**, **B**, **C**, **D**, **F**).
   - Categorized breakdown for Security vs. UX Quality.
-- **🛠️ Instant Auto-Remediation**:
+- **Instant Auto-Remediation**:
   - Ready-to-copy server configs for **Nginx**, **Apache**, **Express.js (Helmet)**, and **PHP**.
   - Drop-in CSS fixes for Dark Mode select contrast.
   - Exportable GitHub Flavored Markdown reports (`--output report.md`).
 
 ---
 
-## 🚀 Quick Start (CLI)
+## Quick Start (CLI)
 
-Run directly via Node.js or `npx`:
+Run directly via `npx` or install globally:
 
 ```bash
-# Audit a live website or API endpoint
-npx vibe-audit --url https://example.com
+# Run directly with npx
+npx @nqatech/vibeaudit --url https://example.com
 
 # Audit a local codebase or repository
-npx vibe-audit --dir ./my-project
+npx @nqatech/vibeaudit --dir ./my-project
 
 # Full combined audit with markdown report and auto-fix snippets
-npx vibe-audit --url https://api.myweb.com --dir ./src --output audit-report.md --fix
+npx @nqatech/vibeaudit --url https://api.myweb.com --dir ./src --output audit-report.md --fix
+
+# Or install globally
+npm install -g @nqatech/vibeaudit
+vibe-audit --url https://example.com
 ```
 
 ### CLI Options
@@ -54,7 +58,7 @@ npx vibe-audit --url https://api.myweb.com --dir ./src --output audit-report.md 
 
 ---
 
-## 🔌 MCP Integration (Claude Desktop / Cursor / Antigravity)
+## MCP Integration (Claude Desktop / Cursor / Antigravity)
 
 VibeAudit implements the standard **Model Context Protocol (v2024-11-05)** over stdio.
 
@@ -87,7 +91,7 @@ Add VibeAudit to `%APPDATA%\Claude\claude_desktop_config.json`:
 
 ---
 
-## 🎨 The Chromium Dark Mode Select Rule
+## The Chromium Dark Mode Select Rule
 
 On Chromium-based browsers (Google Chrome, Microsoft Edge, Brave, Opera), native `<select>` dropdown options inherit the text `color` from the parent `<select>` (which is white/light in Dark Mode) but defaults to an OS white background. This results in **illegible white text on a white background**.
 
@@ -105,7 +109,7 @@ select.form-select option {
 
 ---
 
-## 🛠️ Development & Building
+## Development & Building
 
 ```bash
 # Install dependencies
@@ -120,6 +124,6 @@ node bin/vibe-audit.js --url https://wrenspec.vietcode.io.vn/api/delete/RemoveUs
 
 ---
 
-## 📄 License
+## License
 
-MIT © [Nguyen Quoc Anh](https://github.com/nguyenquocanhz)
+MIT (c) [Nguyen Quoc Anh](https://github.com/nguyenquocanhz)

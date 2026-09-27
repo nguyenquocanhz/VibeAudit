@@ -25,7 +25,7 @@ export function formatTerminalSummary(report: AuditReport): string {
   lines.push("");
   lines.push(chalk.bold.magenta(bar));
   lines.push(
-    chalk.bold.cyan("               🛡️   VIBE-AUDIT COMPREHENSIVE REPORT   🛡️")
+    chalk.bold.cyan("            [*]  VIBE-AUDIT COMPREHENSIVE REPORT  [*]")
   );
   lines.push(
     chalk.gray(
@@ -70,7 +70,7 @@ export function formatTerminalSummary(report: AuditReport): string {
   if (report.findings.length === 0) {
     lines.push(
       chalk.green.bold(
-        "  ✨ Zero vulnerabilities found! Immaculate Web Vibe & Security."
+        "  [PASS] Zero vulnerabilities found! Immaculate Web Vibe & Security."
       )
     );
   } else {
@@ -105,20 +105,20 @@ export function formatTerminalSummary(report: AuditReport): string {
 export function formatMarkdownReport(report: AuditReport): string {
   const md: string[] = [];
 
-  md.push(`# 🛡️ VibeAudit Report`);
+  md.push(`# VibeAudit Report`);
   md.push(`**Target**: \`${report.target}\`  `);
   md.push(`**Audit Type**: \`${report.targetType}\`  `);
   md.push(`**Generated**: ${report.timestamp}  `);
   md.push(`**Duration**: ${report.durationMs}ms\n`);
 
-  md.push(`## 📊 Executive Summary`);
+  md.push(`## Executive Summary`);
   md.push(`| Metric | Value | Rating |`);
   md.push(`|---|---|---|`);
   md.push(`| **Overall Vibe & Security Score** | **${report.overallScore}/100** | **${report.overallGrade}** |`);
   md.push(`| **OWASP Top 10 Security** | ${report.owaspSummary.score}/100 | ${report.owaspSummary.grade} |`);
   md.push(`| **Web Vibe & UX Quality** | ${report.vibeSummary.score}/100 | ${report.vibeSummary.grade} |`);
-  md.push(`| **Total Checks Passed** | ${report.passedRules.length} | ✅ |`);
-  md.push(`| **Total Findings** | ${report.findings.length} | ⚠️ |\n`);
+  md.push(`| **Total Checks Passed** | ${report.passedRules.length} | PASS |`);
+  md.push(`| **Total Findings** | ${report.findings.length} | WARN |\n`);
 
   md.push(`### Severity Breakdown`);
   md.push(`- **Critical**: ${report.findings.filter((f) => f.severity === "CRITICAL").length}`);
@@ -126,7 +126,7 @@ export function formatMarkdownReport(report: AuditReport): string {
   md.push(`- **Medium**: ${report.findings.filter((f) => f.severity === "MEDIUM").length}`);
   md.push(`- **Low**: ${report.findings.filter((f) => f.severity === "LOW").length}\n`);
 
-  md.push(`## 🚨 Discovered Findings`);
+  md.push(`## Discovered Findings`);
   if (report.findings.length === 0) {
     md.push(`*No issues discovered! Project is in pristine condition.*\n`);
   } else {
@@ -147,7 +147,7 @@ export function formatMarkdownReport(report: AuditReport): string {
     }
   }
 
-  md.push(`## 🛠️ Prioritized Remediation Plan`);
+  md.push(`## Prioritized Remediation Plan`);
   for (const step of report.remediationPlan) {
     md.push(`#### Step ${step.step}: ${step.title} (${step.priority})`);
     md.push(`- **Action**: ${step.action}`);

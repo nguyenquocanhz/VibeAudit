@@ -100,7 +100,7 @@ program
         console.log(formatTerminalSummary(report));
 
         if (options.fix) {
-          console.log("\n🛠️  AUTO-REMEDIATION SNIPPETS:");
+          console.log("\n[FIX] AUTO-REMEDIATION SNIPPETS:");
           console.log("--------------------------------------------------");
           console.log(generateDarkModeSelectCssFix());
           const configs = generateSecurityHeadersConfig();
@@ -112,7 +112,7 @@ program
       if (options.output) {
         const md = formatMarkdownReport(report);
         fs.writeFileSync(path.resolve(options.output), md, "utf-8");
-        console.log(`\n📄 Full Markdown report exported to: ${path.resolve(options.output)}`);
+        console.log(`\n[EXPORT] Full Markdown report exported to: ${path.resolve(options.output)}`);
       }
 
       // Exit code: 0 if no criticals/highs, 1 if critical/high findings exist

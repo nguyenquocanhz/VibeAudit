@@ -1,12 +1,12 @@
 {
-  "name": "vibeaudit",
+  "name": "@nqatech/vibeaudit",
   "version": "1.0.0",
   "description": "VibeAudit Tool: Next-Gen OWASP Top 10 Security & Web Vibe/UX Quality Auditor (MCP Server & CLI)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "vibeaudit": "./bin/vibe-audit.js",
-    "vibe-audit": "./bin/vibe-audit.js"
+    "vibe-audit": "bin/vibe-audit.js",
+    "vibeaudit": "bin/vibe-audit.js"
   },
   "files": [
     "dist",
