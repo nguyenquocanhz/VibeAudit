@@ -1,0 +1,44 @@
+{
+  "name": "vibe-audit",
+  "version": "1.0.0",
+  "description": "VibeAudit Tool: Next-Gen OWASP Top 10 Security & Web Vibe/UX Quality Auditor (MCP Server & CLI)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "vibe-audit": "./bin/vibe-audit.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "cli": "node dist/cli.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "owasp",
+    "security-audit",
+    "web-vibe",
+    "dark-mode",
+    "ux-audit",
+    "vibe-audit",
+    "claude",
+    "antigravity"
+  ],
+  "author": "Nguyen Quoc Anh <nguyenquocanhz>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "axios": "^1.7.9",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  }
+}
